@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/toolbar_next_button_map"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="map"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/toolbar_next_button_share"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="share"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/toolbar_next_button_add"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="add favorite"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

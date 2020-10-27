@@ -19,8 +19,10 @@ public class ApplicationClass extends Application {
     public static MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=uft-8");
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
+    public static double lat = 34;
+    public static double lon = 127;
     // 테스트 서버 주소
-    public static String BASE_URL = "http://apis.newvement.com/";
+    public static String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     // 실서버 주소
 //    public static String BASE_URL = "https://template.softsquared.com/";
 

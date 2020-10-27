@@ -2,4 +2,7 @@
     <string name="app_name">Template</string>
     <string name="loading">로딩중입니다.</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
+    <string name="nav_header_desc">appimage</string>
+    <string name="nav_header_title">날씨날씨</string>
+    <string name="nav_header_subtitle">Ver 2.1.0</string>
 </resources>

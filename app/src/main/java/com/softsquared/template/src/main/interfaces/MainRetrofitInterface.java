@@ -1,6 +1,6 @@
 package com.softsquared.template.src.main.interfaces;
 
-import com.softsquared.template.src.main.models.DefaultResponse;
+import com.softsquared.template.src.main.models.CurrentWeather;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -12,15 +12,11 @@ import retrofit2.http.Query;
 
 public interface MainRetrofitInterface {
 //    @GET("/test")
-    @GET("/jwt")
-    Call<DefaultResponse> getTest();
-
-    @GET("/test/{number}")
-    Call<DefaultResponse> getTestPathAndQuery(
-            @Path("number") int number,
-            @Query("content") final String content
+    @GET("weather")
+    Call<CurrentWeather> getTest(
+            @Query("lat") int lat,
+            @Query("lon") int lon,
+            @Query("appid") final String API_KEY
     );
 
-    @POST("/test")
-    Call<DefaultResponse> postTest(@Body RequestBody params);
 }

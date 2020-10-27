@@ -1,8 +1,11 @@
 package com.softsquared.template.src.main;
 
+import android.util.Log;
+
+import com.softsquared.template.src.ApplicationClass;
 import com.softsquared.template.src.main.interfaces.MainRetrofitInterface;
-import com.softsquared.template.src.main.models.DefaultResponse;
 import com.softsquared.template.src.main.interfaces.MainActivityView;
+import com.softsquared.template.src.main.models.CurrentWeather;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,22 +20,29 @@ class MainService {
         this.mMainActivityView = mainActivityView;
     }
 
+    int lat = Integer.parseInt(String.valueOf(Math.round(ApplicationClass.lat)));
+    int lon = Integer.parseInt(String.valueOf(Math.round(ApplicationClass.lon)));
     void getTest() {
         final MainRetrofitInterface mainRetrofitInterface = getRetrofit().create(MainRetrofitInterface.class);
-        mainRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
+        mainRetrofitInterface.getTest(lat,lon,"9624f5754e9546192d5c78282c452fd3").enqueue(new Callback<CurrentWeather>() {
             @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                final DefaultResponse defaultResponse = response.body();
-                if (defaultResponse == null) {
+            public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
+                final CurrentWeather currentWeatherResponse = response.body();
+                if (currentWeatherResponse == null) {
+                    Log.d("network","null");
                     mMainActivityView.validateFailure(null);
                     return;
                 }
 
-                mMainActivityView.validateSuccess(defaultResponse.getMessage());
+                Log.d("network", String.valueOf(lat));
+                Log.d("network", String.valueOf(lon));
+
+                mMainActivityView.validateSuccess(currentWeatherResponse);
             }
 
             @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+            public void onFailure(Call<CurrentWeather> call, Throwable t) {
+                Log.d("network","fail");
                 mMainActivityView.validateFailure(null);
             }
         });
